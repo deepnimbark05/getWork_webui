@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        .footer {
+            /* background: white; */
+            padding: 5%;
+            padding-top: 15%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            /* box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); */
+        }
+        .footer-logo {
+            text-align: center;
+
+        }
+        .footer-logo img {
+            width: 100px;
+            overflow: hidden;
+        }
+        .footer-section {
+            max-width: 250px;
+        }
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin: 5px 0;
+        }
+        .footer-section ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+        }
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .social-links img {
+            width: 30px;
+            margin: 5px;
+        }
+        .app-links img {
+            width: 120px;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-section {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <footer class="footer">
+        <!-- Logo Section -->
+        <div class="footer-logo">
+            <img src="images\incon.png" alt="Company Logo">
+            <h2 style="color: purple;">getWork</h2>
+        </div>
+
+        <!-- Company Section -->
+        <div class="footer-section">
+            <h3>Company</h3>
+            <ul>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Anti-discrimination Policy</a></li>
+                <li><a href="#">UC impact</a></li>
+                <li><a href="#">Careers</a></li>
+            </ul>
+        </div>
+
+        <!-- For Customers -->
+        <div class="footer-section">
+            <h3>For customers</h3>
+            <ul>
+                <li><a href="#">UC reviews</a></li>
+                <li><a href="#">Categories near you</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- For Partners -->
+        <div class="footer-section">
+            <h3>For partners</h3>
+            <ul>
+                <li><a href="#">Register as a professional</a></li>
+            </ul>
+        </div>
+
+        <!-- Social Links & App Downloads -->
+        <div class="footer-section social-links">
+            <h3>Social links</h3>
+            <div>
+                <a href="#"><img src="images\google.png" alt="Google"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn"></a>
+            </div>
+            <div class="app-links">
+                <a href="#"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/256px-Google_Play_Store_badge_EN.svg.png" alt="Google Play"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
