@@ -104,7 +104,7 @@
     <div class="login-container">
         <h2>Login</h2>
         <p>to get started</p>
-        <form>
+        <form onsubmit="event.preventDefault(); window.location.href='home.html';">
             <input type="email" placeholder="Enter your Gmail" required>
             <input type="password" placeholder="Password" required>
             <div class="forgot-password">Forgot Password?</div>
