@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(0deg, #FFFFFF 0%, #FF8514 100%);
+        }
+
+        .navbar-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 12px 0;
+        }
+        .navbar {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            cursor: pointer;
+            /* display: flex; */
+            flex-direction: column;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4C2885;
+        }
+        .logo span {
+            color: #FF8514;
+        }
+        .logo span {
+            color: #4C2885;
+        }
+        .location {
+            font-size: 0.8rem;
+            color: black;
+            margin-top: -3px;
+            margin-left: 10px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            /* margin-left: -30%; */
+        }
+        .nav-links button {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: black;
+            transition: color 0.3s ease;
+        }
+        .nav-links button:hover {
+            color: #FF8514;
+        }
+        .search-section {
+            display: flex;
+            align-items: center;
+            /* background: #E8E6EC; */
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-right: -18%;
+            border: 1px solid #ccc;
+            width: 300px;
+            /* outline: none; */
+        }
+        .search-section input {
+            border: none;
+            background: none;
+            outline: none;
+            font-size: 1rem;
+            flex: 1;
+        }
+        .search-icon {
+            font-size: 1rem;
+            color: black;
+        }
+        .profile-icon {
+            font-size: 1.8rem;
+            cursor: pointer;
+            border: 2px solid black;
+            border-radius: 50%;
+            padding: 5px;
+        }
+        .profile-container {
+            background: #F3F6FF;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .profile-header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .profile-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .profile-pic-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            object-fit: cover;
+        }
+        .edit-icon {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: white;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .profile-form {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input, 
+        .form-group select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .save {
+            background: #FF8514;
+            color: white;
+        }
+        .edit {
+            background: #E0E0E0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-container">
+        <div class="navbar">
+            <div>
+                <div onclick="location.href='home.html'" class="logo">get<span>W</span><span>ork</span></div>
+                <div class="location">📍 Rk, Tramba-Rajkot</div>
+            </div>
+            <div class="nav-links">
+                <button onclick="window.location.href='worker_card.html'">Categories</button>
+                <button onclick="window.location.href='footer.html'">Contact Us</button>
+            </div>
+            
+            
+        </div>
+    </div>
+
+
+    <div class="profile-container">
+        <div class="profile-header">Make your Profile!</div>
+        <div class="profile-content">
+            <div class="profile-pic-container">
+                <img src="default-profile.png" alt="Profile Picture" class="profile-pic">
+                <span class="edit-icon">✏️</span>
+                <input type="file" accept="image/*" style="display: none;">
+            </div>
+            <div class="buttons">
+                <button type="submit" class="save">Save</button>
+                <button type="button" class="edit">Edit</button>
+            </div>
+        </div>
+    </div>
+    <div class="profile-container">
+        <form class="profile-form">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="Your First Name">
+                <label>Last Name</label>
+                <input type="text" placeholder="Your Last Name">
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <select>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Profession</label>
+                <select>
+                    <option>Physiotherapist</option>
+                    <option>Old Care</option>
+                    <option>House Cleaning</option>
+                    <option>Cook</option>
+                    <option>Baby Sitting</option>
+                    <option>Home Tuition</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Language</label>
+                <select>
+                    <option>English</option>
+                    <option>Hindi</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="text" value="+91" placeholder="Enter your number">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="Enter your mail">
+            </div>
+            <div class="form-group">
+                <label>Experience</label>
+                <input type="text" placeholder="Enter your experience">
+            </div>
+            <div class="form-group">
+                <label>Charge (INR)</label>
+                <input type="text" id="chargeInput" placeholder="Enter your Charge in INR">
+                <input type="range" id="chargeSlider" min="1" max="10000" value="1">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

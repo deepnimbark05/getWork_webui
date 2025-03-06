@@ -31,6 +31,7 @@
             box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
         }
         .logo {
+            cursor: pointer;
             /* display: flex; */
             flex-direction: column;
             font-size: 1.8rem;
@@ -119,6 +120,7 @@
 
         /* Grid Layout */
         .container {
+            cursor: pointer;
             padding: 20px;
             display: flex;
             flex-wrap: wrap;
@@ -212,7 +214,7 @@
     <div class="navbar-container">
         <div class="navbar">
             <div>
-                <div class="logo">get<span>W</span><spana>ork</spana></div>
+                <div onclick="location.href='home.html'"  class="logo">get<span>W</span><spana>ork</spana></div>
                 <div class="location">📍 Rk, Tramba-Rajkot</div>
             </div>
             <div class="nav-links">
@@ -221,9 +223,9 @@
             </div>
             <div class="search-section">
                 <input type="text" placeholder="Search services...">
-                <span class="search-icon">🔍</span>
+                <span onclick="location.href='profile.html'" class="search-icon">🔍</span>
             </div>
-            <span class="profile-icon">👤</span>
+            <span class="profile-icon" onclick="window.location.href='profile.html'">👤</span>
         </div>
     </div>
 
@@ -236,9 +238,9 @@
     <!-- Grid Section -->
     <div class="container">
         <!-- Cards -->
-        <div class="card">
+        <div class="card" onclick="location.href='info.html'">
             <div class="badge available">A</div>
-            <img src="images\boy.png" alt="Profile">
+            <img src="images/boy.png" alt="Profile">
             <h3>Dr. Smit Dodiya</h3>
             <p>Physiotherapy</p>
             <div class="rating">
@@ -246,10 +248,10 @@
                 <span>4.5</span>
             </div>
         </div>
-
-        <div class="card">
+    
+        <div class="card" onclick="location.href='info.html'">
             <div class="badge unavailable">UA</div>
-            <img src="images\woman.png" alt="Profile">
+            <img src="images/woman.png" alt="Profile">
             <h3>Dr. Smit Dodiya</h3>
             <p>Physiotherapy</p>
             <div class="rating">
@@ -257,10 +259,10 @@
                 <span>4.5</span>
             </div>
         </div>
-
-        <div class="card">
+    
+        <div class="card" onclick="location.href='info.html'">
             <div class="badge available">A</div>
-            <img src="images\boy.png" alt="Profile">
+            <img src="images/boy.png" alt="Profile">
             <h3>Dr. Smit Dodiya</h3>
             <p>Physiotherapy</p>
             <div class="rating">
@@ -268,10 +270,10 @@
                 <span>4.5</span>
             </div>
         </div>
-
-        <div class="card">
+    
+        <div class="card" onclick="location.href='info.html'">
             <div class="badge unavailable">UA</div>
-            <img src="images\profile.png" alt="Profile">
+            <img src="images/profile.png" alt="Profile">
             <h3>Dr. Smit Dodiya</h3>
             <p>Physiotherapy</p>
             <div class="rating">
@@ -279,10 +281,10 @@
                 <span>4.5</span>
             </div>
         </div>
-        
-        <div class="card">
+    
+        <div class="card" onclick="location.href='info.html'">
             <div class="badge unavailable">UA</div>
-            <img src="images\woman.png" alt="Profile">
+            <img src="images/woman.png" alt="Profile">
             <h3>Dr. Smit Dodiya</h3>
             <p>Physiotherapy</p>
             <div class="rating">
@@ -291,6 +293,7 @@
             </div>
         </div>
     </div>
+    
 
 </body>
 </html>
