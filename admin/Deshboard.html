@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Workers</title>
+    <title>Admin Panel</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         /* General Styles */
         * {
@@ -95,77 +96,45 @@
             background: darkblue;
         }
 
-        /* Workers Section */
-        .workers {
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: space-between;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
 
-        .worker-card {
+        .stat-box {
             background: white;
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            gap: 15px;
-        }
-
-        .worker-image img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 2px solid #ddd;
-        }
-
-        .worker-info {
+            text-align: center;
             flex: 1;
+            margin: 10px;
         }
 
-        .worker-info h3 {
-            margin: 0;
-            font-size: 18px;
+        .stat-box h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
         }
 
-        .worker-info p {
-            font-size: 14px;
-            color: #555;
-        }
-
-        .availability {
-            color: blue;
-            font-size: 14px;
-        }
-
-        .worker-actions {
+        /* Charts Section */
+        .charts {
             display: flex;
-            gap: 10px;
+            justify-content: space-between;
+            margin-top: 30px;
+            flex-wrap: wrap;
         }
 
-        .edit-btn, .remove-btn {
-            border: none;
-            padding: 8px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        .edit-btn {
-            background: blue;
-            color: white;
-        }
-
-        .edit-btn:hover {
-            background: darkblue;
-        }
-
-        .remove-btn {
-            background: red;
-            color: white;
-        }
-
-        .remove-btn:hover {
-            background: darkred;
+        .chart-container {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            min-width: 300px;
         }
 
         /* Responsive */
@@ -184,9 +153,9 @@
                 margin-left: 0;
             }
 
-            .worker-card {
+            .stats, .charts {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
             }
         }
     </style>
@@ -200,7 +169,7 @@
                 <li><a href="#">Dashboard</a></li>
                 <li><a href="#">Carousel</a></li>
                 <li><a href="#">Reviews</a></li>
-                <li><a href="#">Workers</a></li>
+                <li><a href="#">Settings</a></li>
             </ul>
         </nav>
 
@@ -211,48 +180,68 @@
                 <button class="home-btn">Home</button>
             </header>
 
-            <!-- Workers Section -->
-            <div class="workers">
-                <div class="worker-card">
-                    <div class="worker-image">
-                        <img src="https://randomuser.me/api/portraits/women/5.jpg" alt="Worker">
-                    </div>
-                    <div class="worker-info">
-                        <h3>dr. Smit Dodiya</h3>
-                        <p>Consultant - Physiotherapy</p>
-                        <p class="availability">⭐ 4.5 (available)</p>
-                        <p>Experience: 9 Years</p>
-                        <p>Languages: English, Hindi, Gujarati</p>
-                    </div>
-                    <div class="worker-actions">
-                        <button class="edit-btn">Edit</button>
-                        <button class="remove-btn">Remove</button>
-                    </div>
+            <!-- Stats Section -->
+            <div class="stats">
+                <div class="stat-box">
+                    <h2>746</h2>
+                    <p>Total Users</p>
                 </div>
-
-                <div class="worker-card">
-                    <div class="worker-image">
-                        <img src="https://randomuser.me/api/portraits/women/6.jpg" alt="Worker">
-                    </div>
-                    <div class="worker-info">
-                        <h3>dr. Smit Dodiya</h3>
-                        <p>Consultant - Physiotherapy</p>
-                        <p class="availability">⭐ 4.5 (available)</p>
-                        <p>Experience: 9 Years</p>
-                        <p>Languages: English, Hindi, Gujarati</p>
-                    </div>
-                    <div class="worker-actions">
-                        <button class="edit-btn">Edit</button>
-                        <button class="remove-btn">Remove</button>
-                    </div>
+                <div class="stat-box">
+                    <h2>357</h2>
+                    <p>Total Workers</p>
+                </div>
+                <div class="stat-box">
+                    <h2>65</h2>
+                    <p>Total Canceled</p>
+                </div>
+                <div class="stat-box">
+                    <h2>$128</h2>
+                    <p>Total Revenue</p>
                 </div>
             </div>
 
+            <!-- Charts Section -->
+            <div class="charts">
+                <div class="chart-container">
+                    <h3>Workers</h3>
+                    <canvas id="workersChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Users</h3>
+                    <canvas id="usersChart"></canvas>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script>
+        // Workers Chart
+        const workersCtx = document.getElementById('workersChart').getContext('2d');
+        new Chart(workersCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Old Care', 'House Cleaning', 'Cook', 'Baby Sitting', 'Home Tuition', 'Physiotherapist'],
+                datasets: [{
+                    label: 'Workers',
+                    data: [60, 80, 40, 70, 50, 30],
+                    backgroundColor: 'orange'
+                }]
+            }
+        });
+
+        // Users Chart
+        const usersCtx = document.getElementById('usersChart').getContext('2d');
+        new Chart(usersCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Old Care', 'House Cleaning', 'Cook', 'Baby Sitting', 'Home Tuition', 'Physiotherapist'],
+                datasets: [{
+                    label: 'Users',
+                    data: [80, 60, 50, 60, 55, 35],
+                    backgroundColor: 'red'
+                }]
+            }
+        });
+    </script>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> f65799afe6adcc9e98d1b0bd30ae8c3dcb7a8a41
