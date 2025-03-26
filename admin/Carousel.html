@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Home Page Images</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: black;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .logo span {
+            color: orange;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 10px;
+            transition: 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background: orange;
+            border-radius: 5px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            flex: 1;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .home-btn {
+            background: blue;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .home-btn:hover {
+            background: darkblue;
+        }
+
+        /* Images Section */
+        img {
+            display: block;
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border: 1px solid red;
+            /* Add border to see if image area is visible */
+        }
+
+        .image-section {
+            margin-top: 20px;
+        }
+
+        .image-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .image-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .image-card img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .image-actions {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .edit-btn,
+        .remove-btn {
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .edit-btn {
+            background: blue;
+            color: white;
+        }
+
+        .edit-btn:hover {
+            background: darkblue;
+        }
+
+        .remove-btn {
+            background: red;
+            color: white;
+        }
+
+        .remove-btn:hover {
+            background: darkred;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <h2 class="logo">get<span>W</span>ork</h2>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Carousel</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header>
+                <h1>Admin Panel</h1>
+                <button class="home-btn">Home</button>
+            </header>
+
+            <!-- Home Page Images Section -->
+            <div class="image-section">
+                <h2>Home-Page Images</h2>
+                <div class="image-container">
+                    <div class="image-card">
+                        <img src="images\home2.png" alt="Physiotherapy">
+                        <div class="image-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="remove-btn">Remove</button>
+                        </div>
+                    </div>
+                    <div class="image-card">
+                        <img src="images\phy.png" alt="Doctor">
+                        <div class="image-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="remove-btn">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
